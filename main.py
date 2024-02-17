@@ -14,7 +14,8 @@ def hello_world():
 res = {'prompt' : '', 'data' : 0}
 @app.route('/factchecker', methods = ["GET"])
 def factchecker():
-    if res['prompt']== '' : res['data'] = 0
+    res['prompt'] = ''
+    res['data'] = 0
     return render_template('factchecker.html', data = res)
     
 @app.route('/factchecker', methods = ["POST"])
@@ -22,7 +23,6 @@ def result():
     res['prompt'] = request.form['prompt']
     if res['data'] != "" :res['data'] = 1
     else : res['data'] = 0
-    print(res)
     return render_template('factchecker.html', data = res)
     
 
@@ -34,4 +34,4 @@ def result():
     
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

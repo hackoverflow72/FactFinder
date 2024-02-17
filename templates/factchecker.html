@@ -10,7 +10,7 @@
 
 <body onload="check({{data}})">
     <div class="page">
-        <img class="fgj-1-icon" alt="" src="../static/bg.jpg" />
+        <!-- <img class="fgj-1-icon" alt="" src="../static/bg.jpg" /> -->
 
         <header class="main-frame">
             <div class="child-frame">
@@ -28,6 +28,59 @@
                 </a>
             </div>
         </header>
+
+
+        <section class="frame-a" style="margin-top: -7rem;">
+          <div class="frame-b-parent">
+            <form action="/factchecker" method="post" style="width: 100%;">
+              <div class="frame-b">
+                <div class="rectangle-parent">
+                  <div class="frame-child"></div>
+                  <div class="fact-checker-text">?</div>
+                </div>
+                <h2 class="factchecker1">FactChecker</h2>
+              </div>
+              <div class="main-title-frame">
+                <div class="title">Enter the URL you want to Check :</div>
+                <input style="font-size: 16px;" name="prompt" class="bounds" type="text" required/>
+              </div>
+              <div class="button-frame1">
+                <button type="submit" class="button">
+                <div class="careers">Analyse</div>
+                  </button>
+                </div>
+            </form>
+          </div>
+          <div class="results" style="display: none; margin-top: -2rem;">
+
+            <h3 class="lorem-ipsum-is" style="font-weight: lighter;">
+              Lorem ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text ever
+              since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only
+              five centuries, but also the leap into electronic typesetting,
+              remaining essentially unchanged. It was popularised in the 1960s with
+              the release of Letraset sheets containing Lorem Ipsum passages, and
+              more recently with desktop publishing software like Aldus PageMaker
+              including versions of Lorem Ipsum
+            </h3>
+            <div class="child-frame-e" style="margin-top: 2rem; font-size: 22px;">
+              <h3 class="title1" >
+                <span>Therefore, the probability of the following being </span>
+                <span class="true">TRUE</span>
+                <span> is 70%</span>
+              </h3>
+              <div class="rectangle-group">
+                <div class="frame-item"></div>
+                <div class="rectangle-g" style="width: 30%;"></div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+
+
+<!-- 
         <div class="frame-parent">
           <section class="group-frame-wrapper">
             <div class="group-frame">
@@ -44,17 +97,17 @@
                   <div class="asistive-text">Asistive text</div>
                   <div class="title-frame">
                     <div class="title">Enter the Fact you want to check :</div>
-                    <textarea type="text" name="prompt" class="bounds"></textarea>
+                    <input type="text" name="prompt" class="bounds" required/>
                   </div>
                   
                   <div class="button-frame1">
                       <button type="submit" class="button">
                       <div class="careers">Analysis</div>
                     </button>
-                    </div>
+                  </div>
               </form>
               <div class="title-frame1" style="display: none;">
-                <h2 class="title1">The Fact you Entered is {{data.percent}}% True</h2>
+                <h2 class="title1">The Fact you Entered is {{data.prompt}}% True</h2>
                 <div class="inner-frame">
                   <div class="inner-frame-child"></div>
                   <div class="home1" style="width: 100%;"></div>
@@ -62,14 +115,16 @@
               </div>
             </div>
           </section>
+    </div> -->
     </div>
     <script>
        function check(data) {
-            console.log("Yess")
-            console.log("::::",data)
-            if(data.data == 1) document.querySelector(".title-frame1").style.display = "block";
-            
-        }
+          console.log("Yess")
+            if(data.data == 1) {
+              document.querySelector(".results").style.display = "block";
+              document.querySelector(".main-title-frame input").value = data.prompt;
+            }
+          }
     </script>
 </body>
 </html>
