@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" />
+</head>
+
+<body onload="check({{data}})">
+    <div class="page">
+        <img class="fgj-1-icon" alt="" src="../static/bg.jpg" />
+
+        <header class="main-frame">
+            <div class="child-frame">
+                <div class="vector-frame">
+                    <img class="text-node-icon" loading="eager" alt="" src="../static/logo.png" />
+                </div>
+                <div class="factfinder">FactFinder</div>
+            </div>
+            <div class="home-frame">
+                <a class="home" href="/home" >
+                    Home
+                </a>
+                <a class="factchecker" href="/factchecker" style="color: black;">
+                    FactChecker
+                </a>
+            </div>
+        </header>
+        <div class="frame-parent">
+          <section class="group-frame-wrapper">
+            <div class="group-frame">
+              <div class="group-frame-inner">
+                <div class="frame-container">
+                  <button class="rectangle-parent">
+                    <div class="frame-child"></div>
+                    <div class="text-label">?</div>
+                  </button>
+                  <h2 class="factchecker1">FactChecker</h2>
+                </div>
+              </div>
+              <form  action="/factchecker" method="post">
+                  <div class="asistive-text">Asistive text</div>
+                  <div class="title-frame">
+                    <div class="title">Enter the Fact you want to check :</div>
+                    <textarea type="text" name="prompt" class="bounds"></textarea>
+                  </div>
+                  
+                  <div class="button-frame1">
+                      <button type="submit" class="button">
+                      <div class="careers">Analysis</div>
+                    </button>
+                    </div>
+              </form>
+              <div class="title-frame1" style="display: none;">
+                <h2 class="title1">The Fact you Entered is {{data.percent}}% True</h2>
+                <div class="inner-frame">
+                  <div class="inner-frame-child"></div>
+                  <div class="home1" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+    </div>
+    <script>
+       function check(data) {
+            console.log("Yess")
+            console.log("::::",data)
+            if(data.data == 1) document.querySelector(".title-frame1").style.display = "block";
+            
+        }
+    </script>
+</body>
+</html>
